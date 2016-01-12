@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require "rails"
+require "bundler/setup"
+require "pixelpro_sdk"
+
+name = "pixel"
+name = ARGV.first if ARGV.first
+
+PixelproSdk::AddPage.add_controller_page name
