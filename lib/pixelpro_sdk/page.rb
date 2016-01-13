@@ -26,7 +26,7 @@ module PixelproSdk
 
           def event
             # Add your codes here
-          end\nend"
+          end\nend\n"
       end
     end
 
@@ -38,7 +38,7 @@ module PixelproSdk
             get 'event' => '#{name}#event'
             get 'config' => '#{name}#config_ui'
             post 'ins' => '#{name}#ins'
-          end"
+          end\n"
         end
       else
         raise "No Routes File Found"
