@@ -1,6 +1,7 @@
 require "thor"
 
 module PixelproSdk
+  # add or edit files to the rails project
   class AddPage < Thor::Group
     include Thor::Actions
 
@@ -8,6 +9,11 @@ module PixelproSdk
       File.dirname(__FILE__)
     end
 
+    # Add controller files to the rails project<br>
+    # config_ui for the ui page for configration<br>
+    # ins for install the pixel app<br>
+    # info for display dll<br>
+    # event for response pixel pro action event(optional)<br>
     def add_controller_file name
       create_file "app/controller/#{name}_controller.rb" do
         "class CarRestrictionController < ApplicationController\n
@@ -30,6 +36,7 @@ module PixelproSdk
       end
     end
 
+    # Append route to the config/routes file
     def append_route name
       if (::File.exist? "config/routes.rb")
         append_to_file "config/routes.rb" do

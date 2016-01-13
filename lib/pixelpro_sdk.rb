@@ -1,5 +1,5 @@
 require "pixelpro_sdk/version"
-require "pixelpro_sdk/page"
+require "pixelpro_sdk/add_page"
 require "thor"
 
 module PixelproSdk
