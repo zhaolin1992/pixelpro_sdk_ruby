@@ -23,3 +23,4 @@ end
 
 gem 'rails', rails
 gem 'uglifier'
+gem 'thor'

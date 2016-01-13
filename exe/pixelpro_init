@@ -1,10 +1,13 @@
 #!/usr/bin/env ruby
 
 require "rails"
+require "thor"
 require "bundler/setup"
 require "pixelpro_sdk"
 
 name = "pixel"
 name = ARGV.first if ARGV.first
 
-PixelproSdk::AddPage.add_controller_page name
+pixel_controller = PixelproSdk::AddPage.new
+pixel_controller.add_controller_file name
+pixel_controller.append_route name
