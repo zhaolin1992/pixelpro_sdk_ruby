@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "rails"
-require "thor"
+# require "thor"
 require "bundler/setup"
 require "pixelpro_sdk"
 
