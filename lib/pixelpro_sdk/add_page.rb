@@ -1,4 +1,5 @@
 require "thor"
+require "rails"
 
 module PixelproSdk
   # add or edit files to the rails project
@@ -15,8 +16,9 @@ module PixelproSdk
     # info for display dll<br>
     # event for response pixel pro action event(optional)<br>
     def add_controller_file name
-      create_file "app/controller/#{name}_controller.rb" do
-        "class CarRestrictionController < ApplicationController\n
+      camelize_name = name.camelize
+      create_file "app/controllers/#{name}_controller.rb" do
+        "class #{camelize_name}Controller < ApplicationController\n
           skip_before_action :verify_authenticity_token\n
           def config_ui
             # Add your codes here
@@ -28,6 +30,7 @@ module PixelproSdk
 
           def info
             # Add your codes here
+            render: {success: true, ddl: '0160'}
           end
 
           def event
@@ -44,8 +47,7 @@ module PixelproSdk
             get 'info' => '#{name}#info'
             get 'event' => '#{name}#event'
             get 'config' => '#{name}#config_ui'
-            post 'ins' => '#{name}#ins'
-          end\n"
+            post 'ins' => '#{name}#ins'\nend\n"
         end
       else
         raise "No Routes File Found"
