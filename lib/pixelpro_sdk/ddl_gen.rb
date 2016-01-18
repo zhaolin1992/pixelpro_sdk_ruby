@@ -8,18 +8,21 @@ module PixelproSdk
     @ddl_str = String.new
     @frame_num = 1
 
-    def init
+    #init the ddl generate instance
+    def initialize
       @ddl_str = "0160"
     end
-
+    #set the frame number of the ddl
     def set_frame num
-
+      @frame_num = num
     end
 
     def add_image str,x,y,mask
 
     end
 
+    #add text to the ddl file
+    #Usage:add_text text info, x location, y location, frame mask
     def add_text str,x,y,mask=1
       raise "param type error.Usage:add_text(String,Fixnum,Fixnum,Fixnum)" unless ((str.class == String)&&(x.class == Fixnum)&&(y.class == Fixnum)&&(mask.class == Fixnum))
       offset = x
@@ -45,7 +48,6 @@ module PixelproSdk
         end
       else
         str.each_byte do |letter,index|
-          #byebug
           if letter>=65
             if letter>=97
               ddl_temp += "14#{offset.to_s(16).rjust(2, '0')}#{y.to_s(16).rjust(2, '0')}14"+((letter-97).to_s(16)).rjust(2, '0')
@@ -68,6 +70,7 @@ module PixelproSdk
       return 1
     end
 
+    #return the ddl
     def show_ddl
       return (@ddl_str.length / 2).to_s(16).rjust(2, '0')+@ddl_str
     end

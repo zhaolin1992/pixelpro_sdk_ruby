@@ -21,8 +21,9 @@ Or install it yourself as:
     $ gem install pixelpro_sdk
 
 ## Usage
+execute 'pixelpro_init' to generate pixelpro_sdk files:
 
-TODO: Write usage instructions here
+    $ bundle exec pixelpro_init
 
 ## Development
 
