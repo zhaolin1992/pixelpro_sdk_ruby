@@ -17,7 +17,9 @@ module PixelproSdk
       @frame_num = num
     end
 
-    def add_image str,x,y,mask
+    #add image to the ddl file
+    #Usage:add_image image ddl, x location, y location, frame mask
+    def add_image str,x,y,mask=1
 
     end
 
