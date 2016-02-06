@@ -26,4 +26,6 @@ gem 'uglifier'
 gem 'thor'
 gem 'yard'
 
+gem 'faraday'
+
 gem 'byebug'
